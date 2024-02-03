@@ -3,16 +3,18 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { TrainsSituationController } from '../controllers/TrainsSituation.controller';
 import { TrainsSituationService } from '../services/TrainsSituation.service';
 import {
-  DiagramModelName,
+  TrainsSituationModelName,
   TrainsSituationSchema,
 } from '../schema/TrainsSituation.schema';
 import { TrainsSituationRepository } from '../repositories/TrainsSituation.repository';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
-      { name: DiagramModelName, schema: TrainsSituationSchema },
+      { name: TrainsSituationModelName, schema: TrainsSituationSchema },
     ]),
+    ScheduleModule.forRoot(),
   ],
   controllers: [TrainsSituationController],
   providers: [TrainsSituationService, TrainsSituationRepository],
