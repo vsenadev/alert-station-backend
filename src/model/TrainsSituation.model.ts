@@ -1,6 +1,7 @@
 import { Document } from 'mongoose';
 
 export interface TrainsSituation extends Document {
+  id: number;
   situacao: string;
   modificado: string;
   criado: string;

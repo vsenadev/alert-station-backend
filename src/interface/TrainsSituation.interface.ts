@@ -1,4 +1,5 @@
 export interface ITrainsSituation {
+  id: number;
   situacao: string;
   modificado: string;
   criado: string;
