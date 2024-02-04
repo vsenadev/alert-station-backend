@@ -3,6 +3,7 @@ import { Schema } from 'mongoose';
 import { TrainsSituation } from '../Model/TrainsSituation.model';
 
 export const TrainsSituationSchema = new Schema<TrainsSituation>({
+  id: { type: Number, required: true },
   situacao: { type: String, required: true },
   modificado: { type: String, required: true },
   criado: { type: String, required: true },

@@ -17,11 +17,37 @@ export class TrainsSituationService {
         },
       );
 
-      await this.repository.postTrainsStatus(trainsSituation);
+      return await this.repository.postTrainsStatus(trainsSituation);
     } catch (error) {
       throw new HttpException(
         {
           message: 'Por favor! Verificar cronjob',
+        },
+        500,
+      );
+    }
+  }
+
+  async getTrainsSituations() {
+    try {
+      return await this.repository.getTrainsSituations();
+    } catch (error) {
+      throw new HttpException(
+        {
+          message: 'Ocorreu um erro!' + error,
+        },
+        500,
+      );
+    }
+  }
+
+  async getTrainSituationWithId(linha: number) {
+    try {
+      return await this.repository.getTrainSituationWithId(linha);
+    } catch (error) {
+      throw new HttpException(
+        {
+          message: 'Ocorreu um erro!' + error,
         },
         500,
       );
