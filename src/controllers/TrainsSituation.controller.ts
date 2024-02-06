@@ -1,7 +1,10 @@
 import { Controller, Get, Param, Post } from '@nestjs/common';
 import { TrainsSituationService } from '../services/TrainsSituation.service';
 import { Cron } from '@nestjs/schedule';
-import { ITrainSituationJustDesc, ITrainsSituation } from "../interface/TrainsSituation.interface";
+import {
+  ITrainSituationJustDesc,
+  ITrainsSituation,
+} from '../interface/TrainsSituation.interface';
 
 @Controller('api/train')
 export class TrainsSituationController {

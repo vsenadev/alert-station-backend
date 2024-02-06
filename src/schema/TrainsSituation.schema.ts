@@ -1,6 +1,6 @@
 // generate-diagram.schema.ts
 import { Schema } from 'mongoose';
-import { TrainsSituation } from '../Model/TrainsSituation.model';
+import { TrainsSituation } from '../model/TrainsSituation.model';
 
 export const TrainsSituationSchema = new Schema<TrainsSituation>({
   id: { type: Number, required: true },
