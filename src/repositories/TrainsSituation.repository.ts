@@ -2,7 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { TrainsSituation } from '../model/TrainsSituation.model';
-import { ITrainsSituation } from '../interface/TrainsSituation.interface';
+import {
+  ITrainSituationJustDesc,
+  ITrainsSituation,
+} from '../interface/TrainsSituation.interface';
 import { TrainsSituationModelName } from '../schema/TrainsSituation.schema';
 import { format, parseISO } from 'date-fns';
 
@@ -13,7 +16,7 @@ export class TrainsSituationRepository {
     private readonly trainsSituationModel: Model<TrainsSituation>,
   ) {}
 
-  async postTrainsStatus(trainsSituation: ITrainsSituation[]) {
+  async postTrainsStatus(trainsSituation: ITrainsSituation[]): Promise<void> {
     for (const element of trainsSituation) {
       const filter = { codigo: element.codigo };
       const update = {
@@ -37,17 +40,17 @@ export class TrainsSituationRepository {
     }
   }
 
-  async getTrainsSituations() {
+  async getTrainsSituations(): Promise<ITrainsSituation[]> {
     return this.trainsSituationModel.find(
       {},
       { __v: 0, criado: 0, descricao: 0, modificado: 0 },
     );
   }
 
-  async getTrainSituationWithId(linha: number) {
+  async getTrainSituationWithId(linha: number): Promise<ITrainSituationJustDesc> {
     return this.trainsSituationModel.findOne(
       { codigo: linha },
-      { criado: 0, __v: 0, _id: 0, codigo: 0, situacao: 0 },
+      { criado: 0, __v: 0, _id: 0, id: 0, codigo: 0, situacao: 0 },
     );
   }
 }

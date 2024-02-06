@@ -7,3 +7,8 @@ export interface ITrainsSituation {
   linha: number;
   descricao?: string;
 }
+
+export interface ITrainSituationJustDesc {
+  modificado: string;
+  descricao: string;
+}
