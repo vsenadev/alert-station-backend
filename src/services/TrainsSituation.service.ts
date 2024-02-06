@@ -1,13 +1,13 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { TrainsSituationRepository } from '../repositories/TrainsSituation.repository';
 import axios from 'axios';
-import { ITrainsSituation } from '../interface/TrainsSituation.interface';
+import { ITrainSituationJustDesc, ITrainsSituation } from "../interface/TrainsSituation.interface";
 
 @Injectable()
 export class TrainsSituationService {
   constructor(private readonly repository: TrainsSituationRepository) {}
 
-  async postTrainsStatus() {
+  async postTrainsStatus(): Promise<void> {
     try {
       let trainsSituation: ITrainsSituation[] = [];
 
@@ -28,7 +28,7 @@ export class TrainsSituationService {
     }
   }
 
-  async getTrainsSituations() {
+  async getTrainsSituations(): Promise<ITrainsSituation[]> {
     try {
       return await this.repository.getTrainsSituations();
     } catch (error) {
@@ -41,7 +41,7 @@ export class TrainsSituationService {
     }
   }
 
-  async getTrainSituationWithId(linha: number) {
+  async getTrainSituationWithId(linha: number): Promise<ITrainSituationJustDesc> {
     try {
       return await this.repository.getTrainSituationWithId(linha);
     } catch (error) {

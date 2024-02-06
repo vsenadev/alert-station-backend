@@ -1,15 +1,15 @@
-import { Controller, Get, Param, Post } from "@nestjs/common";
+import { Controller, Get, Param, Post } from '@nestjs/common';
 import { TrainsSituationService } from '../services/TrainsSituation.service';
 import { Cron } from '@nestjs/schedule';
-import { ITrainsSituation } from "../interface/TrainsSituation.interface";
+import { ITrainSituationJustDesc, ITrainsSituation } from "../interface/TrainsSituation.interface";
 
 @Controller('api/train')
 export class TrainsSituationController {
   constructor(private readonly service: TrainsSituationService) {}
 
-  @Cron('10 * * * * *')
+  @Cron('59 * * * * *')
   @Post('')
-  async postTrainsStatus() {
+  async postTrainsStatus(): Promise<void> {
     return await this.service.postTrainsStatus();
   }
 
@@ -19,7 +19,9 @@ export class TrainsSituationController {
   }
 
   @Get('situations/:linha')
-  async getTrainSituationWithId(@Param('linha') linha: number) {
+  async getTrainSituationWithId(
+    @Param('linha') linha: number,
+  ): Promise<ITrainSituationJustDesc> {
     return await this.service.getTrainSituationWithId(linha);
   }
 }
