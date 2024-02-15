@@ -12,3 +12,7 @@ export interface ITrainSituationJustDesc {
   modificado: string;
   descricao: string;
 }
+
+export interface ILines {
+  [key: number]: string;
+}
