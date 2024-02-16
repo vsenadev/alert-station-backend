@@ -3,7 +3,6 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { TrainsSituation } from '../model/TrainsSituation.model';
 import {
-  ILines,
   ITrainSituationJustDesc,
   ITrainsSituation,
 } from '../interface/TrainsSituation.interface';

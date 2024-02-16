@@ -8,6 +8,8 @@ export const TrainsSituationSchema = new Schema<TrainsSituation>({
   modificado: { type: String, required: true },
   criado: { type: String, required: true },
   codigo: { type: Number, required: true },
+  nome: { type: String, required: true },
+  cor: { type: String, required: true },
   linha: { type: Number, required: true },
   descricao: { type: String, required: false },
 });

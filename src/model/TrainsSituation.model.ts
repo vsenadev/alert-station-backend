@@ -7,5 +7,7 @@ export interface TrainsSituation extends Document {
   criado: string;
   codigo: number;
   linha: number;
+  cor: string;
+  nome: string;
   descricao?: string;
 }

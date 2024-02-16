@@ -10,7 +10,7 @@ import {
 export class TrainsSituationController {
   constructor(private readonly service: TrainsSituationService) {}
 
-  @Cron('59 * * * * *')
+  @Cron('30 * * * * *')
   @Post('')
   async postTrainsStatus(): Promise<void> {
     return await this.service.postTrainsStatus();
