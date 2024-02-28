@@ -18,6 +18,7 @@ export class TrainsSituationController {
 
   @Get('situations')
   async getTrainsSituations(): Promise<ITrainsSituation[]> {
+    console.log('chamou')
     return await this.service.getTrainsSituations();
   }
 
@@ -25,6 +26,7 @@ export class TrainsSituationController {
   async getTrainSituationWithId(
     @Param('linha') linha: number,
   ): Promise<ITrainSituationJustDesc> {
+    console.log(linha)
     return await this.service.getTrainSituationWithId(linha);
   }
 }
